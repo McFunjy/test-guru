@@ -13,4 +13,8 @@ application up and running.
 
 * Результаты
 
+* Ответы
+
+* Категории
+
 # test-guru
