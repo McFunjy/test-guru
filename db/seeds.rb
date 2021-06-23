@@ -33,24 +33,24 @@ questions = Question.create!([
                                  test_id: tests[3].id }
                              ])
 
-answers = Answer.create!([
-                           { body: 'Matz', correct: true, question_id: questions[0].id },
-                           { body: 'Guido van Rossum', correct: false, question_id: questions[0].id },
-                           { body: 'HyperText Markup Language', correct: true, question_id: questions[1].id },
-                           { body: 'Hype Turbo Multi Language', correct: false, question_id: questions[1].id },
-                           { body: 'Rails', correct: true, question_id: questions[2].id },
-                           { body: 'Django', correct: false, question_id: questions[2].id },
-                           { body: 'Kotlin', correct: true, question_id: questions[3].id },
-                           { body: 'Swift', correct: false, question_id: questions[3].id }
-                         ])
+Answer.create!([
+                 { body: 'Matz', correct: true, question_id: questions[0].id },
+                 { body: 'Guido van Rossum', correct: false, question_id: questions[0].id },
+                 { body: 'HyperText Markup Language', correct: true, question_id: questions[1].id },
+                 { body: 'Hype Turbo Multi Language', correct: false, question_id: questions[1].id },
+                 { body: 'Rails', correct: true, question_id: questions[2].id },
+                 { body: 'Django', correct: false, question_id: questions[2].id },
+                 { body: 'Kotlin', correct: true, question_id: questions[3].id },
+                 { body: 'Swift', correct: false, question_id: questions[3].id }
+               ])
 
-passed_tests = PassedTest.create!([
-                                    { user_id: users[0].id, test_id: tests[0].id },
-                                    { user_id: users[0].id, test_id: tests[1].id },
-                                    { user_id: users[0].id, test_id: tests[2].id },
-                                    { user_id: users[1].id, test_id: tests[0].id },
-                                    { user_id: users[1].id, test_id: tests[1].id },
-                                    { user_id: users[0].id, test_id: tests[3].id },
-                                    { user_id: users[0].id, test_id: tests[4].id },
-                                    { user_id: users[1].id, test_id: tests[3].id }
-                                  ])
+PassedTest.create!([
+                     { user_id: users[0].id, test_id: tests[0].id },
+                     { user_id: users[0].id, test_id: tests[1].id },
+                     { user_id: users[0].id, test_id: tests[2].id },
+                     { user_id: users[1].id, test_id: tests[0].id },
+                     { user_id: users[1].id, test_id: tests[1].id },
+                     { user_id: users[0].id, test_id: tests[3].id },
+                     { user_id: users[0].id, test_id: tests[4].id },
+                     { user_id: users[1].id, test_id: tests[3].id }
+                   ])
