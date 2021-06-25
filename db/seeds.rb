@@ -29,9 +29,8 @@ questions = Question.create!([
                                { body: 'Who is the creator of Ruby?', test: tests[0] },
                                { body: 'How is HTML decoded?', test: tests[1] },
                                { body: 'The ... framework is written in Python', test: tests[2] },
-                               { body: 'Programming language for mobile development on Android',
-                                 test: tests[3] }
-                            
+                               { body: 'Programming language for mobile development on Android', test: tests[3] }
+                             ])
 
 Answer.create!([
                  { body: 'Matz', correct: true, question: questions[0] },
@@ -51,6 +50,5 @@ PassedTest.create!([
                      { user: users[1], test: tests[0] },
                      { user: users[1], test: tests[1] },
                      { user: users[0], test: tests[3] },
-                     { user: users[0], test: tests[4] },
                      { user: users[1], test: tests[3] }
                    ])
