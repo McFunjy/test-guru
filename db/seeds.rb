@@ -19,38 +19,36 @@ categories = Category.create!([
                               ])
 
 tests = Test.create!([
-                       { title: 'Ruby', level: 2, category_id: categories[1].id, author_id: users[0].id },
-                       { title: 'HTML', level: 1, category_id: categories[0].id, author_id: users[1].id },
-                       { title: 'Python', level: 3, category_id: categories[1].id, author_id: users[0].id },
-                       { title: 'Swift', level: 3, category_id: categories[2].id, author_id: users[1].id }
+                       { title: 'Ruby', level: 2, category: categories[1], author: users[0] },
+                       { title: 'HTML', level: 1, category: categories[0], author: users[1] },
+                       { title: 'Python', level: 3, category: categories[1], author: users[0] },
+                       { title: 'Swift', level: 3, category: categories[2], author: users[1] }
                      ])
 
 questions = Question.create!([
-                               { body: 'Who is the creator of Ruby?', test_id: tests[0].id },
-                               { body: 'How is HTML decoded?', test_id: tests[1].id },
-                               { body: 'The ... framework is written in Python', test_id: tests[2].id },
-                               { body: 'Programming language for mobile development on Android',
-                                 test_id: tests[3].id }
+                               { body: 'Who is the creator of Ruby?', test: tests[0] },
+                               { body: 'How is HTML decoded?', test: tests[1] },
+                               { body: 'The ... framework is written in Python', test: tests[2] },
+                               { body: 'Programming language for mobile development on Android', test: tests[3] }
                              ])
 
 Answer.create!([
-                 { body: 'Matz', correct: true, question_id: questions[0].id },
-                 { body: 'Guido van Rossum', correct: false, question_id: questions[0].id },
-                 { body: 'HyperText Markup Language', correct: true, question_id: questions[1].id },
-                 { body: 'Hype Turbo Multi Language', correct: false, question_id: questions[1].id },
-                 { body: 'Rails', correct: true, question_id: questions[2].id },
-                 { body: 'Django', correct: false, question_id: questions[2].id },
-                 { body: 'Kotlin', correct: true, question_id: questions[3].id },
-                 { body: 'Swift', correct: false, question_id: questions[3].id }
+                 { body: 'Matz', correct: true, question: questions[0] },
+                 { body: 'Guido van Rossum', correct: false, question: questions[0] },
+                 { body: 'HyperText Markup Language', correct: true, question: questions[1] },
+                 { body: 'Hype Turbo Multi Language', correct: false, question: questions[1] },
+                 { body: 'Rails', correct: true, question: questions[2] },
+                 { body: 'Django', correct: false, question: questions[2] },
+                 { body: 'Kotlin', correct: true, question: questions[3] },
+                 { body: 'Swift', correct: false, question: questions[3] }
                ])
 
 PassedTest.create!([
-                     { user_id: users[0].id, test_id: tests[0].id },
-                     { user_id: users[0].id, test_id: tests[1].id },
-                     { user_id: users[0].id, test_id: tests[2].id },
-                     { user_id: users[1].id, test_id: tests[0].id },
-                     { user_id: users[1].id, test_id: tests[1].id },
-                     { user_id: users[0].id, test_id: tests[3].id },
-                     { user_id: users[0].id, test_id: tests[4].id },
-                     { user_id: users[1].id, test_id: tests[3].id }
+                     { user: users[0], test: tests[0] },
+                     { user: users[0], test: tests[1] },
+                     { user: users[0], test: tests[2] },
+                     { user: users[1], test: tests[0] },
+                     { user: users[1], test: tests[1] },
+                     { user: users[0], test: tests[3] },
+                     { user: users[1], test: tests[3] }
                    ])
