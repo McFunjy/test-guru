@@ -8,8 +8,8 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 users = User.create!([
-                       { email: 'teacher@mail.ru', password: '123' },
-                       { email: 'student@mail.ru', password: 'qwe' }
+                       { email: 'teacher@mail.ru', password_digest: '123' },
+                       { email: 'student@mail.ru', password_digest: 'qwe' }
                      ])
 
 categories = Category.create!([

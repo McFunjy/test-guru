@@ -4,6 +4,9 @@ class User < ApplicationRecord
   has_many :created_tests, class_name: 'Test', foreign_key: :author_id, dependent: :nullify
 
   validates :email, presence: true
+  validates :email, uniqueness: true, format: { with: URI::MailTo::EMAIL_REGEXP }
+
+has_secure_password
 
   def passed_tests_by_level(level)
     tests.where(level: level)
