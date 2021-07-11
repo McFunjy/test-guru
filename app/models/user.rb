@@ -3,10 +3,16 @@ class User < ApplicationRecord
   has_many :tests, through: :passed_tests
   has_many :created_tests, class_name: 'Test', foreign_key: :author_id, dependent: :nullify
 
+  devise :database_authenticatable,
+         :registerable,
+         :recoverable,
+         :rememberable,
+         :validatable,
+         :trackable,
+         :confirmable
+
   validates :email, presence: true
   validates :email, uniqueness: true, format: { with: URI::MailTo::EMAIL_REGEXP }
-
-  has_secure_password
 
   def passed_tests_by_level(level)
     tests.where(level: level)
@@ -14,5 +20,9 @@ class User < ApplicationRecord
 
   def passed_test(test)
     passed_tests.order(id: :desc).find_by(test: test)
+  end
+
+  def admin?
+    is_a?(Admin)
   end
 end

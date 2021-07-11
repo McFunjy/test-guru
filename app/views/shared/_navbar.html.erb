@@ -1,12 +1,12 @@
 <p class="nav user"><%= link_to 'Test-guru', root_path %></p>
-<% if logged_in? %>
+<% if user_signed_in? %>
   <p class="nav user">
     Welcome, <b><%= current_user.email %></b> Guru<br>
-    <%= link_to 'Sign out', signout_path, method: :delete %>
+    <%= link_to 'Sign out', destroy_user_session_path, method: :delete %>
   </p>
 <% else %>
   <p class="nav user">
-    <%= link_to 'Sign up', signup_path %> |
-    <%= link_to 'Sign in', signin_path %>
+    <%= link_to 'Sign up', new_user_registration_path %> |
+    <%= link_to 'Sign in', new_user_session_path %>
   </p>
 <% end %>
