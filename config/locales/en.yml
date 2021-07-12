@@ -31,8 +31,8 @@
 
 en:
   hello: "Hello world"
-  passed_tests:
-    gist:
+  gists:
+    create:
       success: "Gist was successfully created!"
       failure: "An error occurred while saving gist"
       view_gist: "View Gist on GitHub"

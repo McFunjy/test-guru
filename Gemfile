@@ -30,8 +30,6 @@ gem 'rails-i18n', '~> 6.0.0'
 
 gem 'devise', '~> 4.0'
 
-gem 'faraday'
-
 gem 'octokit', '~> 4.0'
 
 # Reduces boot times through caching; required in config/boot.rb

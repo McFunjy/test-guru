@@ -19,6 +19,6 @@
     </p>
   <% end %>
 
-  <p><%= link_to 'Gist Question', gist_passed_test_path(@passed_test), method: :post %></p>
+  <p><%= link_to 'Gist Question', gists_path(passed_test_id: @passed_test.id), method: :post %></p>
   <p><%= form.submit 'Next' %></p>
 <% end %>
