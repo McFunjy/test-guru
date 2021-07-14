@@ -1,0 +1,15 @@
+<h1><%= 'Created Gists' %></h1>
+
+<table>
+  <thead>
+    <tr>
+      <th><%= 'Question' %></th>
+      <th><%= 'URL' %></th>
+      <th><%= 'Email' %></th>
+    </tr>
+  </thead>
+  <tbody>
+    <%= render @gists %>
+  </tbody>
+</table>
+<%= link_to 'Back', admin_tests_path %>
