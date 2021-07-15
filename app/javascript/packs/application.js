@@ -16,21 +16,18 @@ ActiveStorage.start()
 
 document.addEventListener('turbolinks:load', function() {
 
-  var control = document.querySelector('.sort-by-title')
-  var comparison = document.querySelectorAll('.match')
+  const control = document.querySelector('.sort-by-title')
+  const form = document.querySelector('.registration_form')
 
-  if (control) { control.addEventListener('click', sortRowsByTitle) }
-  if (comparison[0]) { comparison[0].addEventListener('input', passwordMatch) }
-  if (comparison[1]) { comparison[1].addEventListener('input', passwordMatch) }
+  if (control) { control.addEventListener('click', sortRows) }
+  if (form) { form.addEventListener('input', passwordMatch) }
 
-  
+  function sortRows() {
+    const table = document.querySelector('table')
+    new SortingTable(table).sortRowsByTitle()
+  }
+
+  function passwordMatch() {
+    new PasswordComparison(form).check()
+  }
 })
-
-let sortRowsByTitle = () => {
-  var table = document.querySelector('table')
-  new SortingTable(table).sortRowsByTitle()
-}
-let passwordMatch = () => {
-  var comparison = document.querySelectorAll('.match')
-  new PasswordComparison(comparison).check()
-}
