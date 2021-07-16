@@ -14,23 +14,15 @@ Rails.start()
 Turbolinks.start()
 ActiveStorage.start()
 
-document.addEventListener('turbolinks:load', function() {
+document.addEventListener('turbolinks:load', event => {
 
   const control = document.querySelector('.sort-by-title')
-  const password = document.querySelector(".user_password")
-  const confirmPassword = document.querySelector(".user_password_confirmation")
+  const form = document.getElementById("new_user")
 
   if (control) { control.addEventListener('click', sortRows) }
-  if (password) { password.addEventListener('input', passwordMatch) }
-  if (confirmPassword) { confirmPassword.addEventListener('input', passwordMatch) }
+  if (form) { new PasswordComparison(form) }
 
   function sortRows() {
     new SortingTable('table').sortRowsByTitle()
-  }
-
-  function passwordMatch() {
-    if (password && confirmPassword) {
-      new PasswordComparison(password, confirmPassword).check()
-    }
   }
 })

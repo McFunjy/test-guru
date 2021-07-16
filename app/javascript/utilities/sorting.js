@@ -1,7 +1,7 @@
 export default class SortingTable {
 
   constructor(table) {
-    this.table = document.querySelector(table) 
+    this.table = document.querySelector(table)
   }
 
   sortRowsByTitle() {
