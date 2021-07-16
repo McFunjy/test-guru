@@ -17,17 +17,20 @@ ActiveStorage.start()
 document.addEventListener('turbolinks:load', function() {
 
   const control = document.querySelector('.sort-by-title')
-  const form = document.querySelector('.registration_form')
+  const password = document.querySelector(".user_password")
+  const confirmPassword = document.querySelector(".user_password_confirmation")
 
   if (control) { control.addEventListener('click', sortRows) }
-  if (form) { form.user_password_confirmation.addEventListener('input', passwordMatch) }
+  if (password) { password.addEventListener('input', passwordMatch) }
+  if (confirmPassword) { confirmPassword.addEventListener('input', passwordMatch) }
 
   function sortRows() {
-    const table = document.querySelector('table')
-    new SortingTable(table).sortRowsByTitle()
+    new SortingTable('table').sortRowsByTitle()
   }
 
   function passwordMatch() {
-    new PasswordComparison(form).check()
+    if (password && confirmPassword) {
+      new PasswordComparison(password, confirmPassword).check()
+    }
   }
 })

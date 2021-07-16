@@ -1,6 +1,8 @@
 export default class SortingTable {
 
-  constructor(table) { this.table = table }
+  constructor(table) {
+    this.table = document.querySelector(table) 
+  }
 
   sortRowsByTitle() {
     const rows = this.table.querySelectorAll('tr')
@@ -32,21 +34,10 @@ export default class SortingTable {
   }
 
   compareRowsAsc(row1, row2) {
-    const testTitle1 = row1.querySelector('td').textContent
-    const testTitle2 = row2.querySelector('td').textContent
-
-    if (testTitle1 < testTitle2) {return -1}
-    if (testTitle1 > testTitle2) {return 1}
-    return 0
+    return row1.cells[0].innerHTML > row2.cells[0].innerHTML ? 1 : -1
   }
 
   compareRowsDesc(row1, row2) {
-    const testTitle1 = row1.querySelector("td").textContent
-    const testTitle2 = row2.querySelector("td").textContent
-
-    if (testTitle1 > testTitle2) {return -1}
-    if (testTitle1 < testTitle2) {return 1}
-    return 0
+    return row1.cells[0].innerHTML < row2.cells[0].innerHTML ? 1 : -1
   }
-
 }

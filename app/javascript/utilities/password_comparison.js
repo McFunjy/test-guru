@@ -1,7 +1,7 @@
 export default class PasswordComparison {
-  constructor(form) {
-    this.password = form.querySelector('.user_password')
-    this.confirmPassword = form.querySelector('.user_password_confirmation')
+  constructor(password, confirmPassword) {
+    this.password = password
+    this.confirmPassword = confirmPassword
   }
 
   check() {
