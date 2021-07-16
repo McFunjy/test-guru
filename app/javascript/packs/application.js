@@ -20,7 +20,7 @@ document.addEventListener('turbolinks:load', function() {
   const form = document.querySelector('.registration_form')
 
   if (control) { control.addEventListener('click', sortRows) }
-  if (form) { form.addEventListener('input', passwordMatch) }
+  if (form) { form.user_password_confirmation.addEventListener('input', passwordMatch) }
 
   function sortRows() {
     const table = document.querySelector('table')
