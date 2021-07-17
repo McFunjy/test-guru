@@ -17,7 +17,7 @@ ActiveStorage.start()
 document.addEventListener('turbolinks:load', event => {
 
   const control = document.querySelector('.sort-by-title')
-  const form = document.getElementById("new_user")
+  const form = document.getElementById('registration_form')
 
   if (control) { control.addEventListener('click', sortRows) }
   if (form) { new PasswordComparison(form) }
