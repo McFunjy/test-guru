@@ -8,8 +8,8 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 users = User.create!([
-                       {first_name: 'Alex', last_name: 'Green', email: 'teacher@mail.ru', password: '123456', type: 'Admin' },
-                       { email: 'student@mail.ru', password: 'qwerty' }
+                        { email: 'student@mail.ru', password: 'qwerty' },
+                        {first_name: 'Alex', last_name: 'Green', email: 'teacher@mail.ru', password: '123456', type: 'Admin' }
                      ])
 
 categories = Category.create!([
@@ -27,6 +27,7 @@ tests = Test.create!([
 
 questions = Question.create!([
                                { body: 'Who is the creator of Ruby?', test: tests[0] },
+                               { body: 'The ... framework is written in Ruby', test: tests[0] },
                                { body: 'How is HTML decoded?', test: tests[1] },
                                { body: 'The ... framework is written in Python', test: tests[2] },
                                { body: 'Programming language for mobile development on Android', test: tests[3] }
@@ -35,12 +36,14 @@ questions = Question.create!([
 Answer.create!([
                  { body: 'Matz', correct: true, question: questions[0] },
                  { body: 'Guido van Rossum', correct: false, question: questions[0] },
-                 { body: 'HyperText Markup Language', correct: true, question: questions[1] },
-                 { body: 'Hype Turbo Multi Language', correct: false, question: questions[1] },
-                 { body: 'Rails', correct: true, question: questions[2] },
-                 { body: 'Django', correct: false, question: questions[2] },
-                 { body: 'Kotlin', correct: true, question: questions[3] },
-                 { body: 'Swift', correct: false, question: questions[3] }
+                 { body: 'Rails', correct: true, question: questions[1] },
+                 { body: 'Django', correct: false, question: questions[1] },
+                 { body: 'HyperText Markup Language', correct: true, question: questions[2] },
+                 { body: 'Hype Turbo Multi Language', correct: false, question: questions[2] },
+                 { body: 'Rails', correct: false, question: questions[3] },
+                 { body: 'Django', correct: true, question: questions[3] },
+                 { body: 'Kotlin', correct: false, question: questions[4] },
+                 { body: 'Swift', correct: true, question: questions[4] }
                ])
 
 PassedTest.create!([

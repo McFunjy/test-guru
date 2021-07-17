@@ -4,12 +4,14 @@
   <%= @passed_test.current_question.body %>
 </b>
 
-<p>
-  <b>
-    Question <%= @passed_test.current_question_position %> /
-    <%= @passed_test.total_test_questions %>
-  </b>
-</p>
+<div class="progress-bar">
+  <div class= "progress"></div>
+</div>
+
+<%= content_tag :div,
+                  "#{@passed_test.current_question_position} / #{@passed_test.test.questions.count}",
+                  class: 'progress-count',
+                  data: { current: @passed_test.current_question_position, count: @passed_test.test.questions.count } %>
 
 <%= form_with url: passed_test_path(@passed_test), local: true, method: :put do |form| %>
   <%= form.collection_check_boxes :answer_ids, @passed_test.current_question.answers, :id, :body, include_hidden: false do |b| %>
