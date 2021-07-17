@@ -1,11 +1,10 @@
 class GistQuestionService
   Responce = Struct.new(:status, :url) do
-
     def success?
       status == 201
     end
   end
-  
+
   def initialize(question, client: nil)
     @question = question
     @test = @question.test
