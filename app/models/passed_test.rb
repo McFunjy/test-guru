@@ -25,7 +25,7 @@ class PassedTest < ApplicationRecord
   end
 
   def success?
-    percent_correct >= PASSING_SCORE
+    percent_correct >= PASSING_SCORE && !(time_is_over?)
   end
 
   def current_question_position
