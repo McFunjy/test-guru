@@ -11,6 +11,7 @@ import SortingTable from 'utilities/sorting'
 import PasswordComparison from 'utilities/password_comparison'
 import FormInline from 'utilities/form_inline'
 import ProgressBar from "../utilities/progress_bar"
+import Timer from 'utilities/timer'
 
 Rails.start()
 Turbolinks.start()
@@ -22,11 +23,13 @@ document.addEventListener('turbolinks:load', event => {
   const form = document.getElementById('registration_form')
   const links = document.querySelectorAll('.form-inline-link')
   const progress = document.querySelector('.progress-count')
+  const timer = document.querySelector('.timer')
 
   if (control) { control.addEventListener('click', sortRows) }
   if (form) { new PasswordComparison(form) }
   if (links.length) { new FormInline(links) }
   if (progress) { new ProgressBar(progress) }
+  if (timer) { new Timer(timer) }
 
   function sortRows() {
     new SortingTable('table').sortRowsByTitle()

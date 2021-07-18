@@ -1,5 +1,9 @@
 <h1>Test <%= @passed_test.test.title %> was complited!</h1>
 
+<% if @passed_test.left_time %>
+  <% flash.now[:alert] = "Time up!" if @passed_test.time_is_over? %>
+<% end %>
+
 <% if @passed_test.success? %>
   <p>
     Result: <span class="success"><%= @passed_test.percent_correct %></span>%. Success!
