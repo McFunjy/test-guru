@@ -46,12 +46,11 @@ Answer.create!([
                  { body: 'Swift', correct: true, question: questions[4] }
                ])
 
-PassedTest.create!([
-                     { user: users[0], test: tests[0] },
-                     { user: users[0], test: tests[1] },
-                     { user: users[0], test: tests[2] },
-                     { user: users[1], test: tests[0] },
-                     { user: users[1], test: tests[1] },
-                     { user: users[0], test: tests[3] },
-                     { user: users[1], test: tests[3] }
-                   ])
+Badge.create!([
+  { title: 'First try', image_url: 'https://yandex.ru/images/search?text=%D0%9E%D0%B3%D0%BE%D0%BD%D1%8C%20%D0%98%20%D0%92%D0%BE%D0%B4%D0%B0&nl=1&source=morda', rule: 0,
+    description: 'Награда за прохождение теста с первой попытки' },
+  { title: 'Backend guru', image_url: 'https://yandex.ru/images/search?text=%D0%9E%D0%B3%D0%BE%D0%BD%D1%8C%20%D0%98%20%D0%92%D0%BE%D0%B4%D0%B0&nl=1&source=morda', rule: 1, rule_value: '2',
+    description: 'Награда за прохождение всех тестов категории Backend' },
+  { title: 'So easy', image_url: 'https://yandex.ru/images/search?text=%D0%9E%D0%B3%D0%BE%D0%BD%D1%8C%20%D0%98%20%D0%92%D0%BE%D0%B4%D0%B0&nl=1&source=morda', rule: 2, rule_value: '0',
+    description: 'Награда за прохождение всех тестов уровня easy' }
+     ])

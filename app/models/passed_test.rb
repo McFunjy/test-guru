@@ -7,6 +7,13 @@ class PassedTest < ApplicationRecord
 
   before_validation :before_validation_set_question, on: %i[create update]
 
+  before_save :before_save_set_complete_attribute
+
+  scope :complete, -> { where(complete: true) }
+  scope :by_category_id, -> (category_id) { joins(:test).where(tests: { category_id: category_id }) }
+  scope :by_level, -> (level) { joins(:test).where(tests: { level: level }) }
+  scope :no_repetitions, -> { select(:test_id).distinct }
+
   def completed?
     current_question.nil?
   end
@@ -75,5 +82,9 @@ class PassedTest < ApplicationRecord
     else
       test.questions.order(:id).where('id > ?', current_question.id).first
     end
+  end
+
+  def before_save_set_complete_attribute
+    self.complete = success?
   end
 end
