@@ -3,6 +3,7 @@ class User < ApplicationRecord
   has_many :tests, through: :passed_tests
   has_many :created_tests, class_name: 'Test', foreign_key: :author_id, dependent: :nullify
   has_many :gists, dependent: :destroy
+  has_and_belongs_to_many :badges
 
   devise :database_authenticatable,
          :registerable,
@@ -25,5 +26,9 @@ class User < ApplicationRecord
 
   def admin?
     is_a?(Admin)
+  end
+
+  def has_not_one?(badge)
+    self.badges.find_by(id: badge.id).nil?
   end
 end
