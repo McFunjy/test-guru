@@ -25,14 +25,37 @@ class PassedTest < ApplicationRecord
   end
 
   def success?
-    percent_correct >= PASSING_SCORE
+    percent_correct >= PASSING_SCORE && !(time_is_over?)
   end
 
   def current_question_position
     test.questions.order(:id).where('id < ?', current_question.id).count + 1
   end
 
+  def left_time
+    return unless test.timer
+    remaining_time = set_timer - Time.current
+    return 0 if remaining_time <= 0
+    remaining_time
+  end
+
+  def time_is_over?
+    left_time == 0
+  end
+
+  def current_timer(time)
+    return unless time
+    timer = time.round
+    min = timer / 60
+    sec = timer % 60
+    "#{min}:#{sec}"
+  end
+
   private
+
+  def set_timer
+    created_at + test.timer.minute
+  end
 
   def before_validation_set_question
     self.current_question = next_question

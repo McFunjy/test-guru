@@ -1,7 +1,11 @@
 class PassedTestsController < ApplicationController
   before_action :set_passed_test, only: %i[show update result]
 
-  def show; end
+  def show
+    if @passed_test.time_is_over?
+      redirect_to result_passed_test_path(@passed_test)
+    end
+  end
 
   def result; end
 
@@ -12,7 +16,7 @@ class PassedTestsController < ApplicationController
       TestsMailer.completed_test(@passed_test).deliver_now
       redirect_to result_passed_test_path(@passed_test)
     else
-      render :show
+      redirect_to @passed_test
     end
   end
 

@@ -5,8 +5,14 @@
     Result: <span class="success"><%= @passed_test.percent_correct %></span>%. Success!
   </p>
 <% else %>
-  <p>
-    Result: <span class="fail"><%= @passed_test.percent_correct %></span>%. Fail.
-  </p>
+  <% if @passed_test.left_time && @passed_test.time_is_over?%>
+    <p>
+      Result: <span class="fail">Time is over</span>. Fail.
+    </p>
+  <% else %>
+    <p>
+      Result: <span class="fail"><%= @passed_test.percent_correct %></span>%. Fail.
+    </p>
+  <% end %>
 <% end %>
 <%= link_to 'Back to tests', tests_path %>

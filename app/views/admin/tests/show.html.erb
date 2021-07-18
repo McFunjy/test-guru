@@ -8,6 +8,13 @@
   <%= @test.level %>
 </p>
 
+<% if @test.timer %>
+  <p>
+    <strong>Timer:</strong>
+    <%= @test.timer %> min
+  </p>
+<% end %>
+
 <p>
   <%= link_to 'Create new question', new_admin_test_question_path(@test) %>
 </p>

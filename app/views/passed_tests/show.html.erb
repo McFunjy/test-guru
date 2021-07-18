@@ -1,5 +1,9 @@
 <h1>Passing <%= @passed_test.test.title %> test</h1>
 
+<% if @passed_test.test.timer %>
+  <%= tag.div @passed_test.current_timer(@passed_test.left_time), data: { second: @passed_test.left_time }, class: "timer" %>
+<% end %>
+
 <b>
   <%= @passed_test.current_question.body %>
 </b>
@@ -13,7 +17,7 @@
                   class: 'progress-count',
                   data: { current: @passed_test.current_question_position, count: @passed_test.test.questions.count } %>
 
-<%= form_with url: passed_test_path(@passed_test), local: true, method: :put do |form| %>
+<%= form_with url: passed_test_path(@passed_test), local: true, method: :put, id: "passed_test" do |form| %>
   <%= form.collection_check_boxes :answer_ids, @passed_test.current_question.answers, :id, :body, include_hidden: false do |b| %>
     <p>
       <%= b.check_box id: "answer_ids_#{b.object.id}" %>
